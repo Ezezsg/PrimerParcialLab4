@@ -1,0 +1,6 @@
+<app-navbar [titulo]="'Búsqueda'"></app-navbar>
+
+  <div class="box margin-top-20">
+    <app-tabla-pelicula (mostrar)="mostrarDetalle($event)" ></app-tabla-pelicula>
+    <app-detalle-pelicula [pelicula]="unaPelicula" [borrado]="false" ></app-detalle-pelicula>
+  </div>

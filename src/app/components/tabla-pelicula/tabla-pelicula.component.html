@@ -1,0 +1,24 @@
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Estreno</th>
+        <th scope="col">Público</th>
+        <th scope="col">Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let peli of listadoPeliculas" (click)="mostrarDetalle(peli)" class="clickleable-row">
+        <th scope="row">{{peli.id}}</th>
+        <td>{{peli.nombre | titlecase}}</td>
+        <td>{{peli.tipo | titlecase}}</td>
+        <td>{{peli.fecha_estreno | date}}</td>
+        <td>{{peli.cantidad_publico | number}}</td>
+        <td><img [src]="peli.foto" alt="..." class="img-thumbnail"></td>
+      </tr>
+     
+    </tbody>
+  </table>
