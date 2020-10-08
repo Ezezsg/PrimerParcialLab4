@@ -18,8 +18,7 @@ import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-
 import { TablaActorComponent } from './components/tabla-actor/tabla-actor.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-import { ActorsService } from './services/actors.service';
-import { MoviesService } from './services/movies.service';
+
 import { FirebaseService } from './services/firebase.service';
 import { DatePipe } from '@angular/common';
 
@@ -47,7 +46,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MoviesService, DatePipe, ActorsService, FirebaseService],
+  providers: [ DatePipe, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
