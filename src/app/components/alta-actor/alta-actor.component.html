@@ -1,0 +1,57 @@
+<app-navbar [titulo]="'Alta Actor'"></app-navbar>
+<br>
+<div class="container box margin-top-20">
+  <div class="row">
+  <div class="form col col-4">
+    <form [formGroup]="actorForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre"  placeholder="Nombre" formControlName="nombre" required>
+        <div [hidden]="actorForm.get('nombre').valid || actorForm.get('nombre').pristine" class="alert alert-danger">
+          No ingresaste el nombre
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" class="form-control" id="apellido"  placeholder="Apellido" formControlName="apellido" required>
+        <div [hidden]="actorForm.get('apellido').valid || actorForm.get('apellido').pristine" class="alert alert-danger">
+          No ingresaste el apellido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="sexo">Sexo</label>
+        <select class="form-control" id="sexo" formControlName="sexo">
+          <option selected disabled>Seleccione...</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+        </select>
+        <div [hidden]="actorForm.get('sexo').valid || actorForm.get('sexo').pristine" class="alert alert-danger">
+          No ingresaste el sexo
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fechaDeNacimiento">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fechaDeNacimiento"  placeholder="Fecha de Nacimiento" formControlName="fechaDeNacimiento">
+        <div [hidden]="actorForm.get('fechaDeNacimiento').valid || actorForm.get('fechaDeNacimiento').pristine" class="alert alert-danger">
+          No ingresaste la fecha de nacimiento
+        </div>
+      </div>
+      
+      <div class="form-group" *ngIf="seleccionarPais">
+        <label for="nacionalidad">Nacionalidad</label>
+        <input type="text" class="form-control" id="nacionalidad"  placeholder="Nacionalidad" [value]="seleccionarPais.name" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!actorForm.valid || !check">Guardar</button><br>
+    </form>
+  </div>
+  <div class="col col-8">
+    <app-tabla-paises (seleccionarPais)="asignarPais($event)"></app-tabla-paises>
+  </div>
+</div>
+</div>
+

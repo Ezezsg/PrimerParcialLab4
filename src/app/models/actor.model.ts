@@ -6,6 +6,7 @@ export class Actor {
         public apellido: string,
         public sexo: string,
         public fecha_nac: string,
+        public nacionalidad: string,
         public foto: string,
     ){}
 }

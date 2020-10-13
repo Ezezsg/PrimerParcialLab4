@@ -1,0 +1,27 @@
+
+<div class="container">
+
+<table class="table">
+	<thead>
+    	<tr>
+      		<th scope="col">Nombre</th>
+      		<th scope="col">region</th>
+      		<th scope="col">Foto</th>
+    	</tr>
+  	</thead>
+  	<tbody>
+    	<tr *ngFor="let pais of listadoPaises"
+    		(click)="paisSelec(pais)"
+    	>
+      		<td >{{pais.name}}</td>
+      		<td >{{pais.region}}</td>
+      		<td >
+      			<img [src]="pais.flag" style="width: 50px; height: 50px;">
+      		</td>
+      		
+      			<!-- <button type="button" class="btn btn-primary" (click)="guardar(usuario)">Selecccionar</button> -->
+      		
+    	</tr>
+    </tbody>
+</table>
+</div>

@@ -2,13 +2,24 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Actor } from '../models/actor.model';
 import { Pelicula } from '../models/pelicula.model';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor(private db: AngularFirestore) { }
+  private url = environment.urlpaises;
+
+  constructor(
+    private db: AngularFirestore, 
+    private http: HttpClient
+  ) { }
+
+  public obtenerPaises(){
+    return this.http.get(this.url);
+  }
 
   // PELICULAS
 

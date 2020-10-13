@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,8 @@ import { FirebaseService } from './services/firebase.service';
 import { DatePipe } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TablaPaisesComponent } from './components/tabla-paises/tabla-paises.component';
+import { AltaActorComponent } from './components/alta-actor/alta-actor.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TablaPeliculaComponent,
     DetallePeliculaComponent,
     TablaActorComponent,
-    NavbarComponent
+    NavbarComponent,
+    TablaPaisesComponent,
+    AltaActorComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ DatePipe, FirebaseService],
   bootstrap: [AppComponent]
