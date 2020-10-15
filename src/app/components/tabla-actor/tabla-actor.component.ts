@@ -10,19 +10,14 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class TablaActorComponent implements OnInit {
 
   @Output() seleccionar = new EventEmitter<Actor>();
-  listadoActores: Actor[] = [];
+  listadoActores: Actor[];
   constructor(
   	private firebaseService: FirebaseService
   ) { }
 
   ngOnInit(): void {
-  	this.getActores();
-  }
-
-  getActores() {
-    this.firebaseService.getActores()
-    .subscribe((actoresSnapshot) => {
-      actoresSnapshot.forEach( doc => this.listadoActores.push(<Actor>doc.data()) );
+    this.firebaseService.getActores().subscribe((actores: any) => {
+      this.listadoActores = actores;
     });
   }
 

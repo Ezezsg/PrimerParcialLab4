@@ -17,9 +17,11 @@ export class FirebaseService {
     private http: HttpClient
   ) { }
 
-  public obtenerPaises(){
-    return this.http.get(this.url);
-  }
+  // Paises
+  
+    public obtenerPaises(){
+      return this.http.get(this.url);
+    }
 
   // PELICULAS
 
@@ -55,10 +57,14 @@ export class FirebaseService {
     }
 
     public getActores() {
-      return this.db.collection('actores').get();
+      return this.db.collection('actores').valueChanges();
     }
 
     public updateActor(documentId: string, actor: Actor) {
       return this.db.collection('actores').doc(documentId).set({...actor});
+    }
+
+    public deleteActor(documentId: string){
+      return this.db.collection('actores').doc(documentId).delete();
     }
 }

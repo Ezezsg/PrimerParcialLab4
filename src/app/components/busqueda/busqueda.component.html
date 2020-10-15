@@ -1,6 +1,25 @@
-<app-navbar [titulo]="'Búsqueda'"></app-navbar>
+<!-- <app-navbar [titulo]="'Búsqueda'"></app-navbar>
 
   <div class="box margin-top-20">
     <app-tabla-pelicula (mostrar)="mostrarDetalle($event)" ></app-tabla-pelicula>
     <app-detalle-pelicula [pelicula]="unaPelicula" [borrado]="false" ></app-detalle-pelicula>
-  </div>
+  </div> -->
+
+<app-navbar [titulo]="'Entidad Actor'"></app-navbar>
+<div class="container">
+	<app-tabla-actores [listaActores]="listaActores" (actorSeleccionado)="actorSelec($event)"></app-tabla-actores>
+</div>
+
+<div class="row" *ngIf="actorSeleccionado">
+    <div class="col-md-4">
+      	<app-borrar-actor (borrarActor)="borrarAct($event)"></app-borrar-actor>
+    </div>
+    <!-- <div class="col-md-4">
+      	<h2>Detalle Actor</h2>
+        <app-detalle-actores [actorSeleccionado]="actorSeleccionado"></app-detalle-actores>
+        <p><a class="btn btn-secondary" role="button" (click)="onLimpiar()">Limpiar</a></p>
+    </div>
+    <div class="col-md-4">
+        <app-modificar-actor [actor]="actorSeleccionado" (actorMod)="modificarActor($event)"></app-modificar-actor>
+    </div> -->
+</div>

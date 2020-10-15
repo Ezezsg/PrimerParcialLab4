@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Pelicula } from 'src/app/models/pelicula.model';
+import { Actor } from 'src/app/models/actor.model';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -8,14 +9,33 @@ import { Pelicula } from 'src/app/models/pelicula.model';
 })
 export class BusquedaComponent implements OnInit {
 
-  unaPelicula: Pelicula;
-  constructor() { }
+  public listaActores:Actor[];
+  public actorSeleccionado:Actor;
+
+  constructor(
+    private firebaseService: FirebaseService   
+  ) { }
 
   ngOnInit(): void {
+    this.firebaseService.getActores().subscribe((actores: any) => {
+      this.listaActores = actores;
+    });
   }
 
-  mostrarDetalle(pelicula: Pelicula) {
-    this.unaPelicula = pelicula;
+  actorSelec(actor){
+    this.actorSeleccionado = actor;
+    console.log(this.actorSeleccionado);
   }
 
+  borrarAct(boolean){
+    if(boolean){
+      this.firebaseService.deleteActor(this.actorSeleccionado.id).then(x =>{
+        console.log("OK");
+        this.actorSeleccionado = null;
+      })
+      .catch(e =>{
+        console.log("ERROR ->", e);
+      });
+    }
+  }
 }

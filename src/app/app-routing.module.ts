@@ -10,15 +10,14 @@ import { TablaPaisesComponent } from './components/tabla-paises/tabla-paises.com
 import { AltaActorComponent  } from './components/alta-actor/alta-actor.component';
 
 const routes: Routes = [
-  { path: 'busqueda', component: BusquedaComponent },
   { path: 'tablaPaises', component: TablaPaisesComponent },
   { path: 'altaActor', component: AltaActorComponent },
-  { path: 'bienvenido', component: BienvenidoComponent },
+  { path: '', component: BienvenidoComponent },
   { path: 'peliculas/alta', component: PeliculaAltaComponent },
   { path: 'actor/alta', component: ActorAltaComponent },
-  { path: 'actor/listado', component: ActorListadoComponent },
-  { path: 'peliculas/listado', component: PeliculaListadoComponent },
-  { path: '',   redirectTo: '/busqueda', pathMatch: 'full' },
+  { path: 'actor/listado', component: BusquedaComponent },
+  { path: 'peliculas/listado', component: PeliculaListadoComponent }
+  
 ];
 
 @NgModule({

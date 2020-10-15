@@ -24,7 +24,7 @@
       <div class="form-group">
         <label for="sexo">Sexo</label>
         <select class="form-control" id="sexo" formControlName="sexo">
-          <option selected disabled>Seleccione...</option>
+          <option value="" disabled>Seleccione...</option>
           <option value="Femenino">Femenino</option>
           <option value="Masculino">Masculino</option>
         </select>
@@ -39,6 +39,9 @@
         <div [hidden]="actorForm.get('fechaDeNacimiento').valid || actorForm.get('fechaDeNacimiento').pristine" class="alert alert-danger">
           No ingresaste la fecha de nacimiento
         </div>
+      </div>
+      <div *ngIf="!seleccionarPais">
+        <p>Seleccione un país</p>
       </div>
       
       <div class="form-group" *ngIf="seleccionarPais">

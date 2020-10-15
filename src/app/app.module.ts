@@ -26,6 +26,8 @@ import { DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TablaPaisesComponent } from './components/tabla-paises/tabla-paises.component';
 import { AltaActorComponent } from './components/alta-actor/alta-actor.component';
+import { TablaActoresComponent } from './components/tabla-actores/tabla-actores.component';
+import { BorrarActorComponent } from './components/borrar-actor/borrar-actor.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { AltaActorComponent } from './components/alta-actor/alta-actor.component
     TablaActorComponent,
     NavbarComponent,
     TablaPaisesComponent,
-    AltaActorComponent
+    AltaActorComponent,
+    TablaActoresComponent,
+    BorrarActorComponent
   ],
   imports: [
     BrowserModule,
